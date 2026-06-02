@@ -19,22 +19,7 @@ html {
 }
 
 body {
-  margin: 0;
-  color: var(--ink);
-  font-family: "Trebuchet MS", sans-serif;
-  background:
-    linear-gradient(
-      180deg,
-      var(--cream) 0%,
-      var(--cream) 24%,
-      var(--blue) 24%,
-      var(--blue) 49%,
-      var(--lavender) 49%,
-      var(--lavender) 73%,
-      var(--purple) 73%,
-      var(--purple) 100%
-    );
-  background-attachment: fixed;
+  background-color: rgb(255, 255, 255);
 }
 
 img,
@@ -60,13 +45,13 @@ canvas {
     linear-gradient(
       180deg,
       var(--cream) 0%,
-      var(--cream) 25%,
-      var(--blue) 25%,
-      var(--blue) 50%,
-      var(--lavender) 50%,
-      var(--lavender) 75%,
-      var(--purple) 75%,
-      var(--purple) 100%
+      var(--cream) 0%,
+      var(--blue) 0%,
+      var(--blue) 0%,
+      var(--lavender) 0%,
+      var(--lavender) 0%,
+      var(--purple) 0%,
+      var(--purple) 0%
     );
   transition: opacity 500ms ease, visibility 500ms ease;
 }
