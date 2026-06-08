@@ -1,3 +1,4 @@
+#eye-dentify
 👁️ EyeDentify - Face Recognition Attendance System
 EyeDentify is a smart web-based attendance management system that uses Face Recognition to automate student attendance. The system identifies registered students through live face scanning and records attendance automatically while preventing duplicate entries for the same class session.
 🌐 Live Demo
