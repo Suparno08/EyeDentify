@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EyeDentify</title>
+  <title>EyeDentify — Face Recognition Attendance</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Preloader -->
   <div id="preloader" class="preloader">
     <div class="preloader-card">
       <div class="preloader-bars">
@@ -15,94 +17,103 @@
         <span class="bar lavender-bar"></span>
         <span class="bar purple-bar"></span>
       </div>
-      <p class="preloader-kicker">EyeDentify</p>
-      <h2>Small Bits, Big Impact</h2>
-      <p class="preloader-note">Loading smart attendance experience...</p>
+      <p class="preloader-kicker">SkillX · 2nd Sem</p>
+      <h2>EyeDentify</h2>
+      <p class="preloader-note">Loading face recognition engine…</p>
     </div>
   </div>
 
-  <div class="page-shell">
-    <nav class="top-nav">
-      <a href="#home">Home</a>
-      <a href="#enrollment">Enrollment</a>
-      <a href="#scanner">Scanner</a>
-      <a href="#portal">Portal</a>
-      <a href="#records">Records</a>
-      <a href="#team">Team</a>
-    </nav>
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <a href="#home">Home</a>
+    <a href="#enrollment">Enrollment</a>
+    <a href="#scanner">Scanner</a>
+    <a href="#portal">Portal</a>
+    <a href="#records">Records</a>
+    <a href="#team">Team</a>
 
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <span class="toggle-icon" id="toggle-icon">🌙</span>
+      <span id="toggle-label">Dark Mode</span>
+    </button>
+  </nav>
+
+  <div class="page-shell">
+
+    <!-- Hero -->
     <header id="home" class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">SKILLX 2ND SEM</p>
-        <h1>Face recognition attendance system</h1>
+        <span class="eyebrow">PixelBits</span>
+        <h1>Attendance that recognises faces, not excuses.</h1>
         <p class="hero-text">
-          Register students with previous photos, then use the front camera to scan a live face.
-          Attendance is marked only when the live face matches a registered student.
+          Register students once with previous photos. Point the front camera.
+          Attendance marks itself the moment a face matches.
         </p>
         <div class="hero-actions">
-          <a class="hero-link primary-link" href="#enrollment">Start Enrollment</a>
-          <a class="hero-link secondary-link" href="#team">Meet The Team</a>
+          <a class="hero-link primary-link" href="#enrollment">Get Started</a>
+          <a class="hero-link secondary-link" href="#team">Meet the Team</a>
         </div>
       </div>
 
       <div class="hero-panel">
-        <div class="hero-stat cream">
+        <div class="hero-stat">
           <span>Step 1</span>
-          <strong>Register previous student photos</strong>
+          <strong>Upload a few clear student face photos to register them.</strong>
         </div>
-        <div class="hero-stat blue">
+        <div class="hero-stat">
           <span>Step 2</span>
-          <strong>Load face models and start the front camera</strong>
+          <strong>Load face models and open the front-facing camera.</strong>
         </div>
-        <div class="hero-stat lavender">
+        <div class="hero-stat">
           <span>Step 3</span>
-          <strong>Attendance is marked automatically on a valid match</strong>
+          <strong>Attendance is marked automatically on a confident match.</strong>
         </div>
       </div>
 
-      <a class="scroll-cue" href="#enrollment">Scroll Down</a>
+      <a class="scroll-cue" href="#enrollment">Scroll down</a>
     </header>
 
     <main class="story-flow">
+
+      <!-- Section 1 · Enrollment + Scanner -->
       <section id="enrollment" class="story-section">
         <div class="section-header-band">
-          <p class="eyebrow">Section 1</p>
-          <h2>Student Enrollment</h2>
+          <span class="eyebrow">Section 1</span>
+          <h2>Enroll students &amp; scan live faces</h2>
+          <p class="section-sub">Register a student once and the scanner handles the rest every session.</p>
         </div>
 
         <div class="grid-layout">
+
           <section class="card cream-card">
             <div class="section-title">
-              <p class="eyebrow">Enrollment</p>
-              <h2>Register student face</h2>
+              <span class="eyebrow">Enrollment</span>
+              <h2>Register a student</h2>
             </div>
 
             <form id="enrollment-form" class="stack-form">
               <label>
-                <span>Student Name</span>
-                <input type="text" id="student-name" placeholder="Enter full name" required>
+                <span>Full Name</span>
+                <input type="text" id="student-name" placeholder="e.g. Priya Sharma" required>
               </label>
-
               <label>
                 <span>Roll Number</span>
-                <input type="text" id="student-roll" placeholder="Example: 23CS101" required>
+                <input type="text" id="student-roll" placeholder="e.g. 23CS101" required>
               </label>
-
               <label>
                 <span>Department / Class</span>
-                <input type="text" id="student-department" placeholder="Example: CSE - Sem 2" required>
+                <input type="text" id="student-department" placeholder="e.g. CSE – Sem 2" required>
               </label>
-
               <label class="file-field">
-                <span>Previous Face Photos</span>
+                <span>Face Photos (one or more)</span>
                 <input type="file" id="student-reference-images" accept="image/*" multiple required>
               </label>
 
               <div id="reference-preview-grid" class="preview-grid empty-state-panel">
-                Select one or more clear face photos.
+                Choose clear, well-lit photos showing the face.
               </div>
 
-              <button type="submit" class="primary-button">Register Student Face</button>
+              <button type="submit" class="primary-button">Register Student</button>
             </form>
 
             <p id="enrollment-status" class="status-message" aria-live="polite"></p>
@@ -110,7 +121,7 @@
 
           <section id="scanner" class="card blue-card">
             <div class="section-title">
-              <p class="eyebrow">Live Scanner</p>
+              <span class="eyebrow">Live Scanner</span>
               <h2>Automatic attendance</h2>
             </div>
 
@@ -124,13 +135,13 @@
               <video id="camera-feed" autoplay muted playsinline></video>
               <canvas id="face-overlay"></canvas>
               <div id="video-placeholder" class="video-placeholder">
-                Load models and start the front camera.
+                Load models and start the front camera to begin scanning.
               </div>
             </div>
 
             <div class="action-row">
               <button id="load-models" type="button" class="secondary-button">Load Face Models</button>
-              <button id="start-camera" type="button" class="primary-button">Start Front Camera</button>
+              <button id="start-camera" type="button" class="primary-button">Start Camera</button>
               <button id="stop-camera" type="button" class="secondary-button">Stop Camera</button>
             </div>
 
@@ -138,22 +149,25 @@
               Live scan status will appear here.
             </div>
           </section>
+
         </div>
       </section>
 
+      <!-- Section 2 · Portal + Export -->
       <section id="portal" class="story-section">
         <div class="section-header-band">
-          <p class="eyebrow">Section 2</p>
-          <h2>Student Portal And Export</h2>
+          <span class="eyebrow">Section 2</span>
+          <h2>Check attendance &amp; export records</h2>
+          <p class="section-sub">Look up any student by roll number, or download the full register as CSV.</p>
         </div>
 
         <div class="grid-layout">
+
           <section class="card lavender-card">
             <div class="section-title">
-              <p class="eyebrow">Student Portal</p>
-              <h2>Check attendance</h2>
+              <span class="eyebrow">Student Portal</span>
+              <h2>Attendance summary</h2>
             </div>
-
             <form id="lookup-form" class="stack-form">
               <label>
                 <span>Roll Number</span>
@@ -161,44 +175,41 @@
               </label>
               <button type="submit" class="secondary-button">View Attendance</button>
             </form>
-
             <div id="student-summary" class="summary-panel empty-state">
-              Search a roll number to see attendance.
+              Enter a roll number to see the attendance summary.
             </div>
           </section>
 
           <section class="card purple-card">
             <div class="section-title">
-              <p class="eyebrow">Excel Export</p>
-              <h2>Attendance sheet</h2>
+              <span class="eyebrow">Export</span>
+              <h2>Download attendance sheet</h2>
             </div>
-
-            <div class="action-row">
-              <button id="download-csv" type="button" class="secondary-button">Download CSV</button>
-              <button id="write-csv" type="button" class="secondary-button">Write CSV to File</button>
-            </div>
-
             <p class="helper-text">
-              Export attendance records to a CSV file that opens in Microsoft Excel.
+              Export all logged records to a CSV file you can open directly in Microsoft Excel or Google Sheets.
             </p>
-
+            <div class="action-row">
+              <button id="download-csv" type="button" class="primary-button">Download CSV</button>
+              <button id="write-csv" type="button" class="secondary-button">Save to File</button>
+            </div>
             <p id="sheet-status" class="status-message" aria-live="polite"></p>
           </section>
+
         </div>
       </section>
 
+      <!-- Section 3 · Records -->
       <section id="records" class="story-section">
         <div class="section-header-band">
-          <p class="eyebrow">Section 3</p>
-          <h2>Reference Photos And Attendance Records</h2>
+          <span class="eyebrow">Section 3</span>
+          <h2>Registered students &amp; attendance log</h2>
         </div>
 
         <section class="card blue-card full-span">
           <div class="section-title">
-            <p class="eyebrow">Registered Students</p>
+            <span class="eyebrow">Enrolled Students</span>
             <h2>Reference photos</h2>
           </div>
-
           <div id="student-gallery" class="student-gallery empty-state-panel">
             No students enrolled yet.
           </div>
@@ -206,12 +217,10 @@
 
         <section class="card lavender-card full-span">
           <div class="section-title">
-            <p class="eyebrow">Attendance Register</p>
+            <span class="eyebrow">Attendance Register</span>
             <h2>Automatic log</h2>
           </div>
-
           <div id="register-summary" class="register-summary"></div>
-
           <div class="table-wrap">
             <table>
               <thead>
@@ -219,10 +228,10 @@
                   <th>Date</th>
                   <th>Time</th>
                   <th>Name</th>
-                  <th>Roll Number</th>
+                  <th>Roll No.</th>
                   <th>Department</th>
-                  <th>Match Distance</th>
-                  <th>Live Scan Photo</th>
+                  <th>Confidence</th>
+                  <th>Scan Photo</th>
                 </tr>
               </thead>
               <tbody id="attendance-table-body">
@@ -235,44 +244,74 @@
         </section>
       </section>
 
+      <!-- Section 4 · Team -->
       <section id="team" class="story-section">
         <div class="section-header-band">
-          <p class="eyebrow">Section 4</p>
-          <h2>Project Team</h2>
+          <span class="eyebrow">Section 4</span>
+          <h2>The team behind EyeDentify</h2>
+          <p class="section-sub">Five students. One semester. Click a card to view LinkedIn.</p>
         </div>
 
         <section class="card purple-card full-span team-card">
-          <div class="section-title">
-            <p class="eyebrow">Team Members</p>
-            <h2>Click a card to open LinkedIn</h2>
-          </div>
-
           <div class="team-grid">
             <a class="member-chip" href="https://linkedin.com/in/alekhya-mondal-0317a3365" target="_blank" rel="noreferrer">
               <span class="member-name">Alekhya Mondal</span>
-              <span class="member-role">Open LinkedIn Profile</span>
+              <span class="member-role">LinkedIn →</span>
             </a>
             <a class="member-chip" href="https://linkedin.com/in/raj-das-58a419380" target="_blank" rel="noreferrer">
               <span class="member-name">Raj Kumar Das</span>
-              <span class="member-role">Open LinkedIn Profile</span>
+              <span class="member-role">LinkedIn →</span>
             </a>
             <a class="member-chip" href="https://linkedin.com/in/suparno-das-b835b5394" target="_blank" rel="noreferrer">
               <span class="member-name">Suparno Das</span>
-              <span class="member-role">Open LinkedIn Profile</span>
+              <span class="member-role">LinkedIn →</span>
             </a>
             <a class="member-chip" href="https://linkedin.com/in/supradip-p-86a098319" target="_blank" rel="noreferrer">
               <span class="member-name">Supradip Paul</span>
-              <span class="member-role">Open LinkedIn Profile</span>
+              <span class="member-role">LinkedIn →</span>
             </a>
             <a class="member-chip" href="https://linkedin.com/in/patanjali-halder-39615337b" target="_blank" rel="noreferrer">
               <span class="member-name">Patanjali Halder</span>
-              <span class="member-role">Open LinkedIn Profile</span>
+              <span class="member-role">LinkedIn →</span>
             </a>
           </div>
         </section>
       </section>
+
     </main>
   </div>
+
+  <!-- Theme toggle logic -->
+  <script>
+    (function () {
+      const html     = document.documentElement;
+      const btn      = document.getElementById('theme-toggle');
+      const icon     = document.getElementById('toggle-icon');
+      const label    = document.getElementById('toggle-label');
+      const STORAGE  = 'eyedentify.theme';
+
+      function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+          icon.textContent  = '🌄';
+          label.textContent = 'Light Mode';
+        } else {
+          icon.textContent  = '🌑';
+          label.textContent = 'Dark Mode';
+        }
+        localStorage.setItem(STORAGE, theme);
+      }
+
+      // Restore saved preference
+      const saved = localStorage.getItem(STORAGE);
+      if (saved) applyTheme(saved);
+
+      btn.addEventListener('click', function () {
+        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    })();
+  </script>
 
   <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
   <script defer src="app.js"></script>
